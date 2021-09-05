@@ -1,0 +1,18 @@
+{
+  "version": 2,
+  "dgSpecHash": "yKjsZRA3Xq2lZeYDUKuIeDnbhTa1mCoozKCZG0QMzehW9LvuQZxjXaxvH5hAPOdh61Z3MhKtc5Y5lYZpyZQCVQ==",
+  "success": true,
+  "projectFilePath": "D:\\OrlandoQueueTimes\\OrlandoQueueTimes\\OrlandoQueueTimes\\OrlandoQueueTimes.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\rober\\.nuget\\packages\\aspose.cells\\21.8.0\\aspose.cells.21.8.0.nupkg.sha512",
+    "C:\\Users\\rober\\.nuget\\packages\\jobject\\1.0.0\\jobject.1.0.0.nupkg.sha512",
+    "C:\\Users\\rober\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\rober\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
+    "C:\\Users\\rober\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
+    "C:\\Users\\rober\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\rober\\.nuget\\packages\\system.drawing.common\\4.7.0\\system.drawing.common.4.7.0.nupkg.sha512",
+    "C:\\Users\\rober\\.nuget\\packages\\system.runtime\\4.3.1\\system.runtime.4.3.1.nupkg.sha512",
+    "C:\\Users\\rober\\.nuget\\packages\\system.text.encoding.codepages\\4.7.0\\system.text.encoding.codepages.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
