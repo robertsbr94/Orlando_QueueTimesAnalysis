@@ -33,6 +33,15 @@ namespace OrlandoQueueTimes {
 				currentWorksheet = this.spreadsheet.Worksheets[worksheetName];
 			}
 			int rowNum = 2;
+			int colNum = this.queuesDataObj.floridaTime.Hour switch
+			{
+				9 => 5,
+				12 => 6,
+				15 => 7,
+				18 => 8,
+				_ => 9,
+			};
+
 			foreach (var park in this.queuesDataObj.parks)
 			{
 				string parkName = park.Key;
@@ -53,10 +62,11 @@ namespace OrlandoQueueTimes {
 						{
 							currentWorksheet.Cells[rowNum, 4].Value = "No";
 						}
-						currentWorksheet.Cells[rowNum, 5].Value = ride.Value.GetQueueTime();
+						currentWorksheet.Cells[rowNum, colNum].Value = ride.Value.GetQueueTime();
 						rowNum++;
 					}
 				}
+				
 				foreach (var ride in this.queuesDataObj.GetPark(parkName).Rides)
 				{
 					string rideName = ride.Key;
@@ -72,14 +82,8 @@ namespace OrlandoQueueTimes {
 						currentWorksheet.Cells[rowNum, 4].Value = "No";
 					}
 
-					int colNum = this.queuesDataObj.floridaTime.Hour switch
-					{
-						9 => 5,
-						12 => 6,
-						15 => 7,
-						18 => 8,
-						_ => 5,
-					};
+					
+					
 					currentWorksheet.Cells[rowNum, colNum].Value = ride.Value.GetQueueTime();
 					rowNum++;
 				}
