@@ -8,7 +8,7 @@ namespace OrlandoQueueTimes {
 	{
 
 		private readonly XmlDocument parksData;
-        private readonly ConfigHandler config;
+		private readonly ConfigHandler config;
 		public DateTime floridaTime;
 		public Dictionary<string, Park> parks;
 
