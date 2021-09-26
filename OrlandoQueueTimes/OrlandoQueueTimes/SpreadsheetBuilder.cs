@@ -5,12 +5,12 @@ namespace OrlandoQueueTimes {
 	public class SpreadsheetBuilder
 	{
 		public Workbook spreadsheet;
-		private ConfigHandler config;
-		private QueuesData queuesDataObj;
+		private readonly ConfigHandler config;
+		private readonly QueuesData queuesDataObj;
 		public SpreadsheetBuilder(QueuesData queuesDataObj)
 		{
 			this.config = new ConfigHandler();
-			string inSpreadsheetPath = this.config.ConfigFile.SelectSingleNode("/Config/SpreadsheetConfig/Template/@Input").Value;
+			string inSpreadsheetPath = config.ConfigFile.SelectSingleNode("/Config/SpreadsheetConfig/Template/@Input").Value;
 			this.spreadsheet = new Workbook(@$"{inSpreadsheetPath}");
 			this.queuesDataObj = queuesDataObj;
 		}
