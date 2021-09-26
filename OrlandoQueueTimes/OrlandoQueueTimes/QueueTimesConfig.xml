@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Config>
+  <QueueTimesConfig>
+    <Parks>
+      <Park Name='EPCOT' SeqNo='5'/>
+      <Park Name='Magic Kingdom' SeqNo='6'/>
+      <Park Name='MGM Studios' SeqNo='7'/>
+      <Park Name='Animal Kingdom' SeqNo='8'/>
+      <Park Name='Seaworld' SeqNo='21'/>
+      <Park Name='Busch Gardens' SeqNo='24'/>
+      <Park Name='Island of Adventure' SeqNo='64'/>
+      <Park Name='Universal Studios' SeqNo='65'/>
+    </Parks>
+  </QueueTimesConfig>
+  <SpreadsheetConfig>
+    <Template Input="D:\OrlandoQueueTimes\Template.xlsx" Output="D:\OrlandoQueueTimes\Output\QueueTimesAnalysis.xlsx"/>
+  </SpreadsheetConfig>
+</Config>

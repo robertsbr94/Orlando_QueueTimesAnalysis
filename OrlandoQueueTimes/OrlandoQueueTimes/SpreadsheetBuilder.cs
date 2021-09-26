@@ -5,10 +5,13 @@ namespace OrlandoQueueTimes {
 	public class SpreadsheetBuilder
 	{
 		public Workbook spreadsheet;
+		private ConfigHandler config;
 		private QueuesData queuesDataObj;
 		public SpreadsheetBuilder(QueuesData queuesDataObj)
 		{
-			this.spreadsheet = new Workbook(@"D:\OrlandoQueueTimes\Template.xlsx");
+			this.config = new ConfigHandler();
+			string inSpreadsheetPath = this.config.ConfigFile.SelectSingleNode("/Config/SpreadsheetConfig/Template/@Input").Value;
+			this.spreadsheet = new Workbook(@$"{inSpreadsheetPath}");
 			this.queuesDataObj = queuesDataObj;
 		}
 
@@ -83,8 +86,8 @@ namespace OrlandoQueueTimes {
 			}
 			Console.WriteLine("Complete!\n");
 			Console.Write("Saving Spreadsheet...");
-			string outSpreadsheetPath = @"D:\OrlandoQueueTimes\Output\QueueTimesAnalysis.xlsx";
-			this.spreadsheet.Save(outSpreadsheetPath);
+			string outSpreadsheetPath = this.config.ConfigFile.SelectSingleNode("/Config/SpreadsheetConfig/Template/@Output").Value;
+			this.spreadsheet.Save($@"{outSpreadsheetPath}");
 			Console.WriteLine("Complete!\n");
 			Console.WriteLine($"Spreadsheet saved to {outSpreadsheetPath}");
 		}

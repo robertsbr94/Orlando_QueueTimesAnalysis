@@ -8,21 +8,14 @@ namespace OrlandoQueueTimes {
 	{
 
 		private XmlDocument parksData;
+		private ConfigHandler config;
 		public DateTime floridaTime;
 		public Dictionary<string, Park> parks;
 
 		public QueuesData()
 		{
-			string parksDataString = @"<Parks>
-			  <Park Name='EPCOT' SeqNo='5'/>
-			  <Park Name='Magic Kingdom' SeqNo='6'/>
-			  <Park Name='MGM Studios' SeqNo='7'/>
-			  <Park Name='Animal Kingdom' SeqNo='8'/>
-			  <Park Name='Seaworld' SeqNo='21'/>
-			  <Park Name='Busch Gardens' SeqNo='24'/>
-			  <Park Name='Island of Adventure' SeqNo='64'/>
-			  <Park Name='Universal Studios' SeqNo='65'/>
-			</Parks>";
+			this.config = new ConfigHandler();
+			string parksDataString = config.ConfigFile.SelectSingleNode("/Config/QueueTimesConfig").InnerXml;
 			this.parksData = new XmlDocument();
 			this.parksData.Load(new StringReader(parksDataString));
 			this.parks = new Dictionary<string, Park>();
