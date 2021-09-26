@@ -39,7 +39,7 @@ namespace OrlandoQueueTimes {
 				12 => 6,
 				15 => 7,
 				18 => 8,
-				_ => 9,
+				_ => 5,
 			};
 
 			foreach (var park in this.queuesDataObj.parks)
