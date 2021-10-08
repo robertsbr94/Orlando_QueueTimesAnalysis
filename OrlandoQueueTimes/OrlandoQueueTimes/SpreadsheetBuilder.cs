@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using Aspose.Cells;
 
 namespace OrlandoQueueTimes { 
@@ -7,10 +8,20 @@ namespace OrlandoQueueTimes {
 		public Workbook spreadsheet;
 		private readonly ConfigHandler config;
 		private readonly QueuesData queuesDataObj;
+		private readonly string outSpreadsheetPath;
 		public SpreadsheetBuilder(QueuesData queuesDataObj)
 		{
 			this.config = new ConfigHandler();
-			string inSpreadsheetPath = config.ConfigFile.SelectSingleNode("/Config/SpreadsheetConfig/Template/@Input").Value;
+			this.outSpreadsheetPath = this.config.ConfigFile.SelectSingleNode("/Config/SpreadsheetConfig/Template/@Output").Value;
+			string inSpreadsheetPath;
+			if (File.Exists(this.outSpreadsheetPath))
+			{
+				inSpreadsheetPath = this.outSpreadsheetPath;
+			}
+			else
+			{
+				inSpreadsheetPath = config.ConfigFile.SelectSingleNode("/Config/SpreadsheetConfig/Template/@Input").Value;
+			}
 			this.spreadsheet = new Workbook(@$"{inSpreadsheetPath}");
 			this.queuesDataObj = queuesDataObj;
 		}
@@ -90,10 +101,9 @@ namespace OrlandoQueueTimes {
 			}
 			Console.WriteLine("Complete!\n");
 			Console.Write("Saving Spreadsheet...");
-			string outSpreadsheetPath = this.config.ConfigFile.SelectSingleNode("/Config/SpreadsheetConfig/Template/@Output").Value;
 			this.spreadsheet.Save($@"{outSpreadsheetPath}");
 			Console.WriteLine("Complete!\n");
-			Console.WriteLine($"Spreadsheet saved to {outSpreadsheetPath}");
+			Console.WriteLine($"Spreadsheet saved to {this.outSpreadsheetPath}");
 		}
 	}
 }
